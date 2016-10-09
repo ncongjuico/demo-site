@@ -1,21 +1,21 @@
 var img = document.querySelector('img');
-var page1 = document.getElementById('page1');
-var page2 = document.getElementById('page2');
+var page1 = document.getElementById('page1'); /*variable for dean's page*/
+var page2 = document.getElementById('page2'); /*variable for ney's page*/
 
-var imgFlip = true;
+var imgFlip = true; /*controls click event*/
 var currentPage = null;
 
-var fadeOut = function fadeOut() {
+var fadeOut = function fadeOut() { /*fadeout function declaration*/
     img.classList.remove('fadeIn');
     img.classList.add('fadeOut');
 };
 
-var fadeIn = function fadeIn() {
+var fadeIn = function fadeIn() { /*fadein function declaration*/
     img.classList.remove('fadeOut');
     img.classList.add('fadeIn');
 };
 
-var swapPage = function swapPage() {
+var swapPage = function swapPage() { /*swapPage function declaration*/
     if (currentPage === 1) {
         page1.style.display = "block";
         page2.style.display = "none";
