@@ -1,24 +1,25 @@
 var instaimages = document.getElementsByClassName('instaimages');
-var mainpage = document.getElementById('mainpage');
+var mainpage = document.querySelector('#mainpage');
+var enlargeVar = document.querySelector('#enlarge');
 var big = document.querySelector('#big');
 
 // smear out function
-var fadeOut = function fadeOut(section) { /*fadeout function declaration*/
+var fadeOut = function fadeOut(section) {
     section.classList.remove('fadeIn');
     section.classList.add('fadeOut');
 };
 
-// smearing function
-var fadeIn = function fadeIn(section) { /*fadein function declaration*/
-    big.classList.remove('fadeOut');
-    big.classList.add('fadeIn');
+// smear in function
+var fadeIn = function fadeIn(section) {
+    section.classList.remove('fadeOut');
+    section.classList.add('fadeIn');
 };
 
+// array for pictures
 for(var i = 0; i < instaimages.length; i++) {
     instaimages[i].addEventListener('click', function(){
         big.setAttribute('src', this.getAttribute('src'));
         enlarge();
-        console.log('hello from ' + this.getAttribute('src'));
     });
 }
 
@@ -28,14 +29,28 @@ big.addEventListener('click', function(){
 
 // function for enlarging
 var enlarge = function enlarge() {
-    document.getElementById('mainpage').style.display = 'none';
-    document.getElementById('enlarge').style.display = 'block';
+    fadeOut(mainpage);
+    setTimeout(function(){
+        document.getElementById('mainpage').style.display = 'none';
+    }, 200);
+    
+    fadeIn(enlargeVar);
+    setTimeout(function(){
+        document.getElementById('enlarge').style.display = 'block';
+    }, 200);
 };
 
-// function for delarging
+// function for restoring original page
 var restore = function restore() {
-    document.getElementById('enlarge').style.display = 'none';
-    document.getElementById('mainpage').style.display = 'block';
+    fadeOut(enlargeVar);
+    setTimeout(function(){
+        document.getElementById('enlarge').style.display = 'none';
+    }, 200);
+    
+    fadeIn(mainpage);
+    setTimeout(function(){
+        document.getElementById('mainpage').style.display = 'block';
+    }, 200);
 }
 
 // declare an overlay thingie which is kinda like the enlarge section?

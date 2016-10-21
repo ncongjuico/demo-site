@@ -65,7 +65,6 @@ Utility for javascript
 LARGE STUFF
 *********************/
 
-
 #enlarge{
     display: none;
     position: absolute;
@@ -77,9 +76,12 @@ LARGE STUFF
 }
 
 #enlarge img{
-    height: 50%;
-    width: 50%;
-    box-shadow: 2px 3px 2px #888888;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5%;
+    height: 500px;
+    width: 500px;
 }
 
 /*************************
