@@ -1,3 +1,6 @@
+// Missing:
+//    1. FadeIn not working
+
 var instaimages = document.getElementsByClassName('instaimages');
 var mainpage = document.querySelector('#mainpage');
 var enlargeVar = document.querySelector('#enlarge');
@@ -27,17 +30,21 @@ big.addEventListener('click', function(){
     restore();
 })
 
+enlargeVar.addEventListener('click', function(){
+    restore();
+})
+
 // function for enlarging
 var enlarge = function enlarge() {
     fadeOut(mainpage);
     setTimeout(function(){
         document.getElementById('mainpage').style.display = 'none';
-    }, 200);
+    }, 300);
     
-    fadeIn(enlargeVar);
     setTimeout(function(){
         document.getElementById('enlarge').style.display = 'block';
-    }, 200);
+    }, 300);
+    fadeIn(enlargeVar);
 };
 
 // function for restoring original page
@@ -45,12 +52,12 @@ var restore = function restore() {
     fadeOut(enlargeVar);
     setTimeout(function(){
         document.getElementById('enlarge').style.display = 'none';
-    }, 200);
+    }, 300);
     
-    fadeIn(mainpage);
     setTimeout(function(){
         document.getElementById('mainpage').style.display = 'block';
-    }, 200);
+    }, 300);
+    fadeIn(mainpage);
 }
 
 // declare an overlay thingie which is kinda like the enlarge section?
